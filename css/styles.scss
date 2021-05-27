@@ -1,0 +1,408 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+$primary: #007af3;
+$base: #f2f2f2;
+$white: #fff;
+$black: #444444;
+// global
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+}
+
+ul {
+  list-style: none;
+}
+
+section {
+  padding: 5em 2em;
+}
+
+.contact-right,
+.testimonials-section {
+  img,
+  iframe {
+    width: 100%;
+  }
+}
+
+body {
+  background: $base;
+  font-family: "Poppins", sans-serif;
+}
+
+// global end
+
+.navbar {
+  background: $white;
+  padding: 1em;
+
+  .logo {
+    color: $black;
+    font-weight: bold;
+    font-size: 1.3em;
+    span {
+      color: $primary;
+    }
+  }
+
+  nav {
+    display: none;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mobile-menu {
+    cursor: pointer;
+  }
+}
+
+.hero {
+  text-align: center;
+
+  .subheading {
+    text-transform: uppercase;
+    margin-bottom: 1em;
+    font-size: 1.4em;
+    letter-spacing: 0.3em;
+    color: grey;
+    font-weight: bold;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    line-height: 1.3em;
+    margin-bottom: 1em;
+  }
+
+  .hero-cta {
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+
+    .btn-primary {
+      padding: 0.6em 1.3em;
+      font-size: 1.4em;
+      font-weight: bold;
+      border: 0.2em solid $primary;
+      border-radius: 25px;
+      background: $primary;
+      color: $white;
+      display: inline-block;
+    }
+
+    .btn-secondary {
+      margin-top: 1em;
+      font-size: 1.4em;
+      border-radius: 25px;
+      display: block;
+      text-decoration: underline;
+      img {
+        margin-right: 0.5em;
+      }
+    }
+  }
+  .hero-img {
+    margin-top: 3em;
+    width: 70%;
+  }
+}
+
+.feature {
+  background: #20272e;
+  color: $white;
+
+  .features-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+    li {
+      margin: 1em 0;
+      margin-left: 2em;
+      position: relative;
+      &::before {
+        content: "";
+        left: -2em;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-image: url(../images/bullet.svg);
+        background-size: contain;
+        margin-right: 0.5em;
+      }
+    }
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.testimonials-section {
+  background: $primary;
+
+  ul {
+    li {
+      background: darken($color: $primary, $amount: 10);
+      text-align: center;
+      padding: 2em 1em;
+      width: 80%;
+      margin: 0 auto 5em auto;
+      border-radius: 1em;
+      position: relative;
+      color: $white;
+      img {
+        position: absolute;
+        top: -30%;
+        left: 40%;
+        border-radius: 50%;
+        width: 5em;
+        height: 5em;
+        border: 5px solid darken($color: $primary, $amount: 10);
+      }
+    }
+  }
+}
+
+label {
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.8em;
+  margin-bottom: 1em;
+  border-radius: 0.5em;
+  border: none;
+}
+input[type="submit"] {
+  border-radius: 25px;
+  background: $primary;
+  color: $white;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-bottom: 5em;
+  width: unset;
+  padding: 0.8em 2em;
+  cursor: pointer;
+}
+
+iframe {
+  width: 100%;
+  height: 300px;
+}
+
+nav.menu-btn {
+  display: block;
+}
+
+nav {
+  position: fixed;
+  z-index: 999;
+  width: 66%;
+  right: 0;
+  top: 0;
+  background-color: darken($black, 25);
+  height: 100vh;
+  padding: 1em;
+
+  a {
+    color: $white;
+    display: block;
+    padding: 0.5em;
+    font-size: 1.3em;
+    text-align: right;
+    text-transform: capitalize;
+
+    &:hover {
+      color: $primary;
+      font-weight: bold;
+    }
+  }
+  ul.primary-nav {
+    margin-top: 5em;
+
+    li {
+    }
+  }
+}
+
+.mobile-exit {
+  float: right;
+  margin: 0.5em;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .mobile-menu,
+  .mobile-exit {
+    display: none;
+  }
+  .navbar .container {
+    display: grid;
+    grid-template-columns: 180px auto;
+  }
+
+  .navbar {
+    nav {
+      display: flex;
+      justify-content: space-between;
+      background: none;
+      position: unset;
+      height: auto;
+      width: 100%;
+      padding: 0;
+
+      ul {
+        display: flex;
+        padding: 0.1em 1em;
+
+        a {
+          color: $black;
+        }
+      }
+
+      ul.primary-nav {
+        margin: 0;
+      }
+
+      li.current a {
+        font-weight: bold;
+      }
+
+      li.go-premium-cta a {
+        color: $primary;
+        border: 3px solid $primary;
+        border-radius: 25px;
+        margin-top: -0.2em;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1080px) {
+  .container {
+    width: 1080px;
+    margin: 0 auto;
+  }
+
+  section {
+    padding: 10em 4em;
+  }
+
+  .hero .container {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+
+    .left-col {
+      margin: 3em 3em 0 5em;
+
+      h1 {
+        font-size: 3em;
+        width: 90%;
+      }
+    }
+  }
+
+  .hero-img {
+    width: 30%;
+    margin-right: 6em;
+  }
+
+  .hero-cta {
+    display: flex;
+  }
+  .btn-primary {
+    margin-right: 1em;
+  }
+
+  ul.features-list {
+    display: block;
+    margin-left: 5em;
+
+    li {
+      font-size: 1.4em;
+
+      &:before {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  .feature {
+    position: relative;
+  }
+
+  .feature img {
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 350px;
+    bottom: -2em;
+  }
+
+  .testimonials-section ul {
+    display: flex;
+
+    li {
+      margin: 0 1em;
+    }
+  }
+
+  .contact-section {
+    position: relative;
+
+    .container {
+      display: flex;
+    }
+  }
+
+  .contact-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 45%;
+    height: 100%;
+
+    iframe {
+      height: 100%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .feature {
+    &:before {
+      content: "";
+      position: absolute;
+      width: 10%;
+      height: 20em;
+      background: var(--primary-color);
+      left: 0;
+      top: -4em;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 20em;
+      background: url("https://assets.codepen.io/2621168/dots.svg") no-repeat;
+      left: 4.5em;
+      top: 2em;
+    }
+  }
+}
